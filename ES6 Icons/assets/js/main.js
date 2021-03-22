@@ -48,12 +48,7 @@ const icons = [
 		type: 'animal',
 		family: 'fas'
 	},
-	{
-		name: 'carrot',
-		prefix: 'fa-',
-		type: 'vegetable',
-		family: 'fas'
-	},
+
 	{
 		name: 'apple-alt',
 		prefix: 'fa-',
@@ -66,12 +61,7 @@ const icons = [
 		type: 'vegetable',
 		family: 'fas'
 	},
-	{
-		name: 'pepper-hot',
-		prefix: 'fa-',
-		type: 'vegetable',
-		family: 'fas'
-	},
+
 	{
 		name: 'user-astronaut',
 		prefix: 'fa-',
@@ -99,7 +89,25 @@ const icons = [
 ];
 icons.forEach((item) => {
   console.log(`<li><i class="${item.family} ${item.prefix}${item.name}></i></li>`);
-  $('#icone').append(`<li><i class="${item.family} ${item.prefix}${item.name} ></i></li>`)
+  $('#icone').append(`<div class="card col-xs-2 "><i class="${item.family} ${item.prefix}${item.name}"></i>
+  <br><div class="title">${item.name}</div></div>`)
+
 });
+const animaliblu = icons.filter((element) => element.type == 'animal');
+const vegetaligialli = icons.filter((element) => element.type == 'vegetable');
+const userviola = icons.filter((element) => element.type == 'user');
+icons.forEach((item) => {
+
+  if (animaliblu) {
+    $( "i" ).addClass( "blue" );
+  }
+  else if (vegetaligialli) {
+    $( "i" ).addClass( "yellow" );
+  }
+  else if (userviola) {
+    $( "i" ).addClass( "purple" );
+  }
+});
+
 
 });
