@@ -87,26 +87,41 @@ const icons = [
 		family: 'fas'
 	}
 ];
-icons.forEach((item) => {
+const colori = [
+  'blue',
+  'orange',
+  'purple',
+]
+const daticolor = icons.map((item, i, array) => {
+  if (item.type == "animal") {
+    let obj = {
+      ...item,
+      color: colori[0]
+    }
+    return obj;
+  }
+  else if (item.type == "vegetable") {
+    let obj = {
+      ...item,
+      color: colori[1]
+    }
+    return obj;
+  }
+  else {
+    let obj = {
+      ...item,
+      color: colori[2]
+    }
+    return obj;
+  }
+});
+console.log(daticolor);
+
+daticolor.forEach((item) => {
   console.log(`<li><i class="${item.family} ${item.prefix}${item.name}></i></li>`);
-  $('#icone').append(`<div class="card col-xs-2 "><i class="${item.family} ${item.prefix}${item.name}"></i>
+  $('#icone').append(`<div class="card col-xs-2 "><i class="${item.family} ${item.prefix}${item.name} ${item.color}"></i>
   <br><div class="title">${item.name}</div></div>`)
 
-});
-const animaliblu = icons.filter((element) => element.type == 'animal');
-const vegetaligialli = icons.filter((element) => element.type == 'vegetable');
-const userviola = icons.filter((element) => element.type == 'user');
-icons.forEach((item) => {
-
-  if (animaliblu) {
-    $( "i" ).addClass( "blue" );
-  }
-  else if (vegetaligialli) {
-    $( "i" ).addClass( "yellow" );
-  }
-  else if (userviola) {
-    $( "i" ).addClass( "purple" );
-  }
 });
 
 
